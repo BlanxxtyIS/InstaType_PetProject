@@ -13,7 +13,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("Start Pet Project")
     }
-
-
 }
 
