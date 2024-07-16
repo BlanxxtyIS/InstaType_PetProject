@@ -1,9 +1,8 @@
-
 import UIKit
 
 class InstaTypeViewController: UIViewController {
 
-    let shoppingList = ["Apples"]
+    let mockImageNamed = Array(1...14)
     
     private lazy var shoppingTableView: UITableView = {
         let table = UITableView()
@@ -11,15 +10,20 @@ class InstaTypeViewController: UIViewController {
                        forCellReuseIdentifier: InstaTypeCustomCell.reuseIdentifier)
         table.delegate = self
         table.dataSource = self
-        table.sectionHeaderHeight = 50
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
     
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        shoppingTableView.rowHeight = 200
         setupUI()
     }
     
@@ -36,9 +40,22 @@ class InstaTypeViewController: UIViewController {
 }
 
 extension InstaTypeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let image = UIImage(named: "\(mockImageNamed[indexPath.row])") else {
+            return 0
+        }
+        let imageInsets = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
+        let imageViewWidth = tableView.bounds.width - imageInsets.left - imageInsets.right
+        let imageWidth = image.size.width
+        let scale = imageViewWidth / imageWidth
+        let cellHeight = image.size.height * scale + imageInsets.top + imageInsets.bottom
+        return cellHeight
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let alert = UIAlertController(title: nil, message: "Вы нажали на: \(shoppingList[indexPath.row])", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "Вы нажали на: \(mockImageNamed[indexPath.row])", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             alert.dismiss(animated: true)
         }
@@ -49,7 +66,7 @@ extension InstaTypeViewController: UITableViewDelegate {
 
 extension InstaTypeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        shoppingList.count
+        mockImageNamed.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,7 +75,8 @@ extension InstaTypeViewController: UITableViewDataSource {
             for: indexPath) as? InstaTypeCustomCell else {
             return UITableViewCell()
         }
-        cell.instaImage.image = UIImage(named: "1")
+        cell.setupCell(image: "\(mockImageNamed[indexPath.row])",
+                       date: dateFormatter.string(from: Date()))
         return cell
     }
 }
