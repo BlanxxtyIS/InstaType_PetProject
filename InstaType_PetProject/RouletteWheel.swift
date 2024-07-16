@@ -41,6 +41,7 @@ class RouletteWheelView: UIView {
         rotation.repeatCount = .infinity
         imageView.layer.add(rotation, forKey: "spinAnimation")
         
+        // Using a completion block for animation completion
         DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
             self.imageView.layer.removeAnimation(forKey: "spinAnimation")
             completion?()
