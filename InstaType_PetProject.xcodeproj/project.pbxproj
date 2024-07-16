@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F410F6782C464A4D0056E73E /* InstaTypeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410F6772C464A4D0056E73E /* InstaTypeCustomCell.swift */; };
 		F45BDAA22C410D3000FDC4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BDAA12C410D3000FDC4E5 /* AppDelegate.swift */; };
 		F45BDAA42C410D3000FDC4E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BDAA32C410D3000FDC4E5 /* SceneDelegate.swift */; };
-		F45BDAA62C410D3000FDC4E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BDAA52C410D3000FDC4E5 /* ViewController.swift */; };
+		F45BDAA62C410D3000FDC4E5 /* InstaTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BDAA52C410D3000FDC4E5 /* InstaTypeViewController.swift */; };
 		F45BDAAB2C410D3200FDC4E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F45BDAAA2C410D3200FDC4E5 /* Assets.xcassets */; };
 		F45BDAAE2C410D3200FDC4E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45BDAAC2C410D3200FDC4E5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F410F6772C464A4D0056E73E /* InstaTypeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaTypeCustomCell.swift; sourceTree = "<group>"; };
 		F45BDA9E2C410D3000FDC4E5 /* InstaType_PetProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaType_PetProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45BDAA12C410D3000FDC4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F45BDAA32C410D3000FDC4E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F45BDAA52C410D3000FDC4E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F45BDAA52C410D3000FDC4E5 /* InstaTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaTypeViewController.swift; sourceTree = "<group>"; };
 		F45BDAAA2C410D3200FDC4E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F45BDAAD2C410D3200FDC4E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F45BDAAF2C410D3200FDC4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +37,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F410F6792C464C4B0056E73E /* InstaType */ = {
+			isa = PBXGroup;
+			children = (
+				F45BDAA52C410D3000FDC4E5 /* InstaTypeViewController.swift */,
+				F410F6772C464A4D0056E73E /* InstaTypeCustomCell.swift */,
+			);
+			path = InstaType;
+			sourceTree = "<group>";
+		};
 		F45BDA952C410D3000FDC4E5 = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +65,9 @@
 		F45BDAA02C410D3000FDC4E5 /* InstaType_PetProject */ = {
 			isa = PBXGroup;
 			children = (
+				F410F6792C464C4B0056E73E /* InstaType */,
 				F45BDAA12C410D3000FDC4E5 /* AppDelegate.swift */,
 				F45BDAA32C410D3000FDC4E5 /* SceneDelegate.swift */,
-				F45BDAA52C410D3000FDC4E5 /* ViewController.swift */,
 				F45BDAAA2C410D3200FDC4E5 /* Assets.xcassets */,
 				F45BDAAC2C410D3200FDC4E5 /* LaunchScreen.storyboard */,
 				F45BDAAF2C410D3200FDC4E5 /* Info.plist */,
@@ -134,7 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F45BDAA62C410D3000FDC4E5 /* ViewController.swift in Sources */,
+				F410F6782C464A4D0056E73E /* InstaTypeCustomCell.swift in Sources */,
+				F45BDAA62C410D3000FDC4E5 /* InstaTypeViewController.swift in Sources */,
 				F45BDAA22C410D3000FDC4E5 /* AppDelegate.swift in Sources */,
 				F45BDAA42C410D3000FDC4E5 /* SceneDelegate.swift in Sources */,
 			);
