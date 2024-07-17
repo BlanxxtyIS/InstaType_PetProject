@@ -19,16 +19,6 @@ class RouletteWheelView: UIView {
         setupView()
     }
     
-    private func setupView() {
-        addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
-    }
-    
     func setImage(_ image: UIImage) {
         imageView.image = image
     }
@@ -41,10 +31,19 @@ class RouletteWheelView: UIView {
         rotation.repeatCount = .infinity
         imageView.layer.add(rotation, forKey: "spinAnimation")
         
-        // Using a completion block for animation completion
         DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
             self.imageView.layer.removeAnimation(forKey: "spinAnimation")
             completion?()
         }
+    }
+    
+    private func setupView() {
+        addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
     }
 }

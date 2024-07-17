@@ -9,6 +9,7 @@ import UIKit
 
 class CongratilationsViewController: UIViewController {
     
+    //MARK: - Private Methods
     private lazy var blureBackgroundImage: UIImageView = {
        let image = UIImage(named: "blureViewController")
         let imageView = UIImageView(image: image)
@@ -85,11 +86,13 @@ class CongratilationsViewController: UIViewController {
         return button
     }()
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    //MARK: - Private Methods
     @objc
     private func letsGoButtonTapped() {
         dismiss(animated: true)
@@ -105,6 +108,10 @@ class CongratilationsViewController: UIViewController {
         view.addSubview(rouletteHalfImage)
         view.addSubview(letsGoButton)
         
+        setupUIConstraints()
+    }
+    
+    private func setupUIConstraints() {
         NSLayoutConstraint.activate([
             blureBackgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
             blureBackgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
