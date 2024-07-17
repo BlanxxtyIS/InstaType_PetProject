@@ -2,12 +2,13 @@ import UIKit
 
 class InstaTypeViewController: UIViewController {
 
-    let mockImageNamed = Array(1...14)
+    let mockImageNamed = Array(1...23)
     
     private lazy var shoppingTableView: UITableView = {
         let table = UITableView()
         table.register(InstaTypeCustomCell.self,
                        forCellReuseIdentifier: InstaTypeCustomCell.reuseIdentifier)
+        table.backgroundColor = .mBackground
         table.delegate = self
         table.dataSource = self
         table.separatorStyle = .none
@@ -24,6 +25,7 @@ class InstaTypeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .mBackground
         setupUI()
     }
     
@@ -77,6 +79,8 @@ extension InstaTypeViewController: UITableViewDataSource {
         }
         cell.setupCell(image: "\(mockImageNamed[indexPath.row])",
                        date: dateFormatter.string(from: Date()))
+        cell.selectionStyle = .none
+        cell.backgroundColor = .mBackground
         return cell
     }
 }
