@@ -40,5 +40,6 @@ class InstaTypeTabBarController: UITabBarController {
         UITabBar.appearance().tintColor = .mWhite
         UITabBar.appearance().unselectedItemTintColor = .mLightMain
         UITabBar.appearance().backgroundColor = .mBackground
+        UINavigationBar.appearance().barTintColor = .mBackground
     }
 }

@@ -56,13 +56,10 @@ extension InstaTypeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let alert = UIAlertController(title: nil, message: "Вы нажали на: \(mockImageNamed[indexPath.row])", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            alert.dismiss(animated: true)
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
+        let vc = SingleImageViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.selectedImage = UIImage(named: "\(self.mockImageNamed[indexPath.row])")
+        self.present(vc, animated: true)
     }
 }
 
