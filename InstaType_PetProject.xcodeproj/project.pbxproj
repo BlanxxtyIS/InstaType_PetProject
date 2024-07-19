@@ -11,6 +11,7 @@
 		F410F6842C46C20A0056E73E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410F6832C46C20A0056E73E /* ProfileViewController.swift */; };
 		F410F6862C47A3CF0056E73E /* InstaTypeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410F6852C47A3CF0056E73E /* InstaTypeTabBarController.swift */; };
 		F410F68A2C481AAF0056E73E /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410F6892C481AAF0056E73E /* SingleImageViewController.swift */; };
+		F443E3C22C4ABA1E005379A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F443E3C12C4ABA1E005379A5 /* Constants.swift */; };
 		F45BDAA22C410D3000FDC4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BDAA12C410D3000FDC4E5 /* AppDelegate.swift */; };
 		F45BDAA42C410D3000FDC4E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BDAA32C410D3000FDC4E5 /* SceneDelegate.swift */; };
 		F45BDAA62C410D3000FDC4E5 /* InstaTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BDAA52C410D3000FDC4E5 /* InstaTypeViewController.swift */; };
@@ -23,6 +24,7 @@
 		F410F6832C46C20A0056E73E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F410F6852C47A3CF0056E73E /* InstaTypeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaTypeTabBarController.swift; sourceTree = "<group>"; };
 		F410F6892C481AAF0056E73E /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		F443E3C12C4ABA1E005379A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F45BDA9E2C410D3000FDC4E5 /* InstaType_PetProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaType_PetProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45BDAA12C410D3000FDC4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F45BDAA32C410D3000FDC4E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 				F410F6772C464A4D0056E73E /* InstaTypeCustomCell.swift */,
 				F410F6832C46C20A0056E73E /* ProfileViewController.swift */,
 				F410F6892C481AAF0056E73E /* SingleImageViewController.swift */,
+				F443E3C12C4ABA1E005379A5 /* Constants.swift */,
 			);
 			path = InstaType;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				F410F6842C46C20A0056E73E /* ProfileViewController.swift in Sources */,
 				F45BDAA22C410D3000FDC4E5 /* AppDelegate.swift in Sources */,
 				F45BDAA42C410D3000FDC4E5 /* SceneDelegate.swift in Sources */,
+				F443E3C22C4ABA1E005379A5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
