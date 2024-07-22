@@ -1,10 +1,3 @@
-//
-//  ProfileSettingsViewController.swift
-//  PartyRoulette
-//
-//  Created by Марат Хасанов on 17.07.2024.
-//
-
 import UIKit
 import StoreKit
 
@@ -141,51 +134,8 @@ class ProfileSettingsViewController: UIViewController {
         return view
     }()
     
-    private lazy var rateUsBackground: UIView = {
-        let view = UIView()
-        view.backgroundColor = .mOrange
-        view.heightAnchor.constraint(equalToConstant: 103).isActive = true
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 23
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var rateUsEmojiBackground: UIView = {
-        let view = UIView()
-        view.backgroundColor = .mBacgroundProfile
-        view.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 64).isActive = true
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 32
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var rateUsEmoji: UILabel = {
-        let label = UILabel()
-        label.text = "⭐"
-        label.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        label.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var rateUsLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 22, weight: .bold)
-        label.text = "Rate Us!"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var rateAppButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .mOrange
-        button.setTitle("RATE APP", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+    private lazy var rateUsButton: RateUsButton = {
+       let button = RateUsButton()
         button.addTarget(self, action: #selector(rateAppButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -236,11 +186,7 @@ class ProfileSettingsViewController: UIViewController {
         view.addSubview(genderTitle)
         view.addSubview(genderTextField)
         view.addSubview(middleLineView)
-        view.addSubview(rateUsBackground)
-        rateUsBackground.addSubview(rateUsLabel)
-        rateUsBackground.addSubview(rateUsEmojiBackground)
-        rateUsEmojiBackground.addSubview(rateUsEmoji)
-        view.addSubview(rateAppButton)
+        view.addSubview(rateUsButton)
 
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -274,22 +220,10 @@ class ProfileSettingsViewController: UIViewController {
             middleLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             middleLineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            rateUsBackground.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 8),
-            rateUsBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            rateUsBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            rateUsBackground.topAnchor.constraint(equalTo: middleLineView.bottomAnchor, constant: 20),
-            
-            rateUsEmojiBackground.leadingAnchor.constraint(equalTo: rateUsBackground.leadingAnchor, constant: 20),
-            rateUsEmojiBackground.centerYAnchor.constraint(equalTo: rateUsBackground.centerYAnchor),
-            
-            rateUsEmoji.centerYAnchor.constraint(equalTo: rateUsEmojiBackground.centerYAnchor),
-            rateUsEmoji.centerXAnchor.constraint(equalTo: rateUsEmojiBackground.centerXAnchor),
-            
-            rateUsLabel.centerYAnchor.constraint(equalTo: rateUsBackground.centerYAnchor),
-            rateUsLabel.leadingAnchor.constraint(equalTo: rateUsEmojiBackground.trailingAnchor, constant: 20),
-            
-            rateAppButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            rateAppButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            rateUsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 8),
+            rateUsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            rateUsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            rateUsButton.topAnchor.constraint(equalTo: middleLineView.bottomAnchor, constant: 20)
         ])
     }
 }

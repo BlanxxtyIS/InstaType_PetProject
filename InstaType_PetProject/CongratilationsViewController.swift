@@ -1,15 +1,10 @@
-//
-//  CongratilationsViewController.swift
-//  PartyRoulette
-//
-//  Created by Марат Хасанов on 16.07.2024.
-//
-
 import UIKit
 
 class CongratilationsViewController: UIViewController {
     
     //MARK: - Private Methods
+    var image: String = ""
+    
     private lazy var blureBackgroundImage: UIImageView = {
        let image = UIImage(named: "blureViewController")
         let imageView = UIImageView(image: image)
@@ -58,7 +53,7 @@ class CongratilationsViewController: UIViewController {
     }()
     
     private lazy var droppedEmoji: UIImageView = {
-       let image = UIImage(named: "Drink")
+       let image = UIImage(named: image)
         let imageView = UIImageView(image: image)
         imageView.heightAnchor.constraint(equalToConstant: 34).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 34).isActive = true
