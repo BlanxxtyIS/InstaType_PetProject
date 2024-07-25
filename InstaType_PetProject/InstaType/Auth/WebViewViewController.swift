@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-protocol WebViewViewControllerDelegate {
+protocol WebViewViewControllerDelegate: AnyObject {
     //WebViewViewController получил кол
     func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String)
     
@@ -21,6 +21,8 @@ enum WebViewConstants {
 }
 
 class WebViewViewController: UIViewController {
+    
+    weak var delegate: WebViewViewControllerDelegate?
     
     private lazy var webView: WKWebView = {
         let webView = WKWebView(frame: .zero)
@@ -51,6 +53,15 @@ class WebViewViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    init(delegate: WebViewViewControllerDelegate?) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +98,7 @@ class WebViewViewController: UIViewController {
     @objc
     private func backButtonTapped() {
         dismiss(animated: true)
+        delegate?.webViewViewControllerDidCancel(self)
     }
     
     private func setupUI() {
@@ -133,10 +145,12 @@ extension WebViewViewController: WKNavigationDelegate {
     //Вызывается когда wkWebView готовится совершить навигационные действия
     func webView(_ webView: WKWebView,
                  decidePolicyFor navigationAction: WKNavigationAction,
-                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if code(from: navigationAction) != nil {
-            //TODO: procces code
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        if let code = code(from: navigationAction) {
+            //TODO: process code
             decisionHandler(.cancel)
+            delegate?.webViewViewController(self, didAuthenticateWithCode: code)
         } else {
             decisionHandler(.allow)
         }

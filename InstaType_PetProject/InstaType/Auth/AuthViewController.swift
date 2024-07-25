@@ -9,6 +9,8 @@ import UIKit
 
 class AuthViewController: UIViewController {
     
+    let oauth = OAuth2Service.shared
+    
     private lazy var logoImage: UIImageView = {
        let image = UIImage(named: "Logo")
         let imageView = UIImageView(image: image)
@@ -41,7 +43,7 @@ class AuthViewController: UIViewController {
     
     @objc
     private func loginButtonTapped() {
-        let vc = WebViewViewController()
+        let vc = WebViewViewController(delegate: self)
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
@@ -62,3 +64,12 @@ class AuthViewController: UIViewController {
     }
 }
 
+extension AuthViewController: WebViewViewControllerDelegate {
+    func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
+        oauth.load(code: code)
+    }
+    
+    func webViewViewControllerDidCancel(_ vc: WebViewViewController) {
+        print("Qq")
+    }
+}
