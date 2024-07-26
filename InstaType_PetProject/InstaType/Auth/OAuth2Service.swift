@@ -34,7 +34,7 @@ class OAuth2Service {
         return request
     }
     
-    func fetchOAuthToken(code: String, handler: @escaping (Result<Data, Error>) -> Void) {
+    private func fetchOAuthToken(code: String, handler: @escaping (Result<Data, Error>) -> Void) {
         let request = makeOAuthTokenRequest(code: code)
         
         let urlSession = URLSession.shared
@@ -58,14 +58,13 @@ class OAuth2Service {
         task.resume()
     }
     
-    func loadUnsplashData(code: String, handler: @escaping (Result<BearerToken, Error>) -> Void) {
+    private func loadUnsplashData(code: String, handler: @escaping (Result<BearerToken, Error>) -> Void) {
         fetchOAuthToken(code: code) { result in
             switch result {
             case .success(let data):
                 do {
                     let bearerToken = try JSONDecoder().decode(BearerToken.self, from: data)
                     handler(.success(bearerToken))
-                    print(bearerToken)
                 } catch {
                     handler(.failure(error))
                 }
@@ -82,6 +81,8 @@ class OAuth2Service {
                 switch result {
                 case .success(let bearerToken):
                     print(bearerToken)
+                    print(bearerToken.accessToken)
+                    UserDefaults.standard.setValue(bearerToken.accessToken, forKey: "accessToken")
                 case .failure(let error):
                     print(error)
                 }
