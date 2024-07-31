@@ -1,13 +1,9 @@
-//
-//  CongratilationsViewController.swift
-//  PartyRoulette
-//
-//  Created by Марат Хасанов on 16.07.2024.
-//
-
 import UIKit
 
 class CongratilationsViewController: UIViewController {
+    
+    //MARK: - Private Methods
+    var image: String = ""
     
     private lazy var blureBackgroundImage: UIImageView = {
        let image = UIImage(named: "blureViewController")
@@ -57,7 +53,7 @@ class CongratilationsViewController: UIViewController {
     }()
     
     private lazy var droppedEmoji: UIImageView = {
-       let image = UIImage(named: "Drink")
+       let image = UIImage(named: image)
         let imageView = UIImageView(image: image)
         imageView.heightAnchor.constraint(equalToConstant: 34).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 34).isActive = true
@@ -85,11 +81,13 @@ class CongratilationsViewController: UIViewController {
         return button
     }()
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    //MARK: - Private Methods
     @objc
     private func letsGoButtonTapped() {
         dismiss(animated: true)
@@ -105,6 +103,10 @@ class CongratilationsViewController: UIViewController {
         view.addSubview(rouletteHalfImage)
         view.addSubview(letsGoButton)
         
+        setupUIConstraints()
+    }
+    
+    private func setupUIConstraints() {
         NSLayoutConstraint.activate([
             blureBackgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
             blureBackgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
