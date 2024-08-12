@@ -15,14 +15,8 @@ class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        var vc: UIViewController
-        if UserDefaults.standard.string(forKey: "accessToken") == nil {
-            vc = AuthViewController()
-            vc.modalPresentationStyle = .fullScreen
-        } else {
-            vc = InstaTypeTabBarController()
-            vc.modalPresentationStyle = .fullScreen
-        }
+        let vc = (UserDefaults.standard.string(forKey: "accessToken") != nil) ? InstaTypeTabBarController() : AuthViewController()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
 }

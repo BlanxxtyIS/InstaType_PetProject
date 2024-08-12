@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController {
         view.addSubview(exitButton)
         
         NSLayoutConstraint.activate([
-            profileImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            profileImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             profileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             
             exitButton.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor),

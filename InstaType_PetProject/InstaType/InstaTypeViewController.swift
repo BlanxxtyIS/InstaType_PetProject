@@ -35,8 +35,8 @@ class InstaTypeViewController: UIViewController {
         NSLayoutConstraint.activate([
             shoppingTableView.topAnchor.constraint(equalTo: view.topAnchor),
             shoppingTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            shoppingTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            shoppingTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            shoppingTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            shoppingTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
 }
