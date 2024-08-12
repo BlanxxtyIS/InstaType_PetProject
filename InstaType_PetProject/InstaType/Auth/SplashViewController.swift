@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpashViewController: UIViewController {
+class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +18,10 @@ class SpashViewController: UIViewController {
         var vc: UIViewController
         if UserDefaults.standard.string(forKey: "accessToken") == nil {
             vc = AuthViewController()
+            vc.modalPresentationStyle = .fullScreen
         } else {
             vc = InstaTypeTabBarController()
+            vc.modalPresentationStyle = .fullScreen
         }
         present(vc, animated: true)
     }

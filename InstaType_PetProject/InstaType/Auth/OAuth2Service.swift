@@ -74,7 +74,7 @@ class OAuth2Service {
         }
     }
     
-    func load(code: String) {
+    func load(code: String, completion: @escaping() -> Void) {
         loadUnsplashData(code: code) { [weak self] result in
             DispatchQueue.main.async {
                 guard self != nil else { return }
@@ -83,6 +83,7 @@ class OAuth2Service {
                     print(bearerToken)
                     print(bearerToken.accessToken)
                     UserDefaults.standard.setValue(bearerToken.accessToken, forKey: "accessToken")
+                    completion()
                 case .failure(let error):
                     print(error)
                 }

@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "swiftfortunewheel",
+      "identity" : "progresshud",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sh-khashimov/SwiftFortuneWheel.git",
+      "location" : "https://github.com/relatedcode/ProgressHUD.git",
       "state" : {
-        "revision" : "a0646fc23fbd3be8014f3436715b06be665c4016",
-        "version" : "1.4.4"
+        "revision" : "9364904a42cb25f58d026451140c4080a868e72e",
+        "version" : "14.1.3"
       }
     }
   ],

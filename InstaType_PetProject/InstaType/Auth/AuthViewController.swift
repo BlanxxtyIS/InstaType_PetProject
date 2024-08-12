@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class AuthViewController: UIViewController {
     
@@ -66,7 +67,10 @@ class AuthViewController: UIViewController {
 
 extension AuthViewController: WebViewViewControllerDelegate {
     func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
-        oauth.load(code: code)
+        ProgressHUD.animate()
+        oauth.load(code: code) {
+            ProgressHUD.dismiss()
+        }
     }
     
     func webViewViewControllerDidCancel(_ vc: WebViewViewController) {
