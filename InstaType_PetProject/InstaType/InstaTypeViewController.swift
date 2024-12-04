@@ -2,12 +2,13 @@ import UIKit
 
 class InstaTypeViewController: UIViewController {
 
-    let mockImageNamed = Array(1...14)
+    let mockImageNamed = Array(1...23)
     
     private lazy var shoppingTableView: UITableView = {
         let table = UITableView()
         table.register(InstaTypeCustomCell.self,
                        forCellReuseIdentifier: InstaTypeCustomCell.reuseIdentifier)
+        table.backgroundColor = .mBackground
         table.delegate = self
         table.dataSource = self
         table.separatorStyle = .none
@@ -24,6 +25,7 @@ class InstaTypeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .mBackground
         setupUI()
     }
     
@@ -33,8 +35,8 @@ class InstaTypeViewController: UIViewController {
         NSLayoutConstraint.activate([
             shoppingTableView.topAnchor.constraint(equalTo: view.topAnchor),
             shoppingTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            shoppingTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            shoppingTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            shoppingTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            shoppingTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
 }
@@ -54,13 +56,10 @@ extension InstaTypeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let alert = UIAlertController(title: nil, message: "Вы нажали на: \(mockImageNamed[indexPath.row])", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            alert.dismiss(animated: true)
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
+        let vc = SingleImageViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.selectedImage = UIImage(named: "\(self.mockImageNamed[indexPath.row])")
+        self.present(vc, animated: true)
     }
 }
 
@@ -77,6 +76,8 @@ extension InstaTypeViewController: UITableViewDataSource {
         }
         cell.setupCell(image: "\(mockImageNamed[indexPath.row])",
                        date: dateFormatter.string(from: Date()))
+        cell.selectionStyle = .none
+        cell.backgroundColor = .mBackground
         return cell
     }
 }

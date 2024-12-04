@@ -17,6 +17,14 @@ class InstaTypeCustomCell: UITableViewCell {
         }
     }
     
+    private lazy var cellView: UIView = {
+       let view = UIView()
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 16
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var likeButton: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(named: "No Active"), for: .normal)
@@ -67,21 +75,27 @@ class InstaTypeCustomCell: UITableViewCell {
     }
     
     private func setupCell() {
-        contentView.addSubview(instaImage)
-        contentView.addSubview(likeButton)
-        contentView.addSubview(dateLabel)
+        contentView.addSubview(cellView)
+        cellView.addSubview(instaImage)
+        cellView.addSubview(likeButton)
+        cellView.addSubview(dateLabel)
         
         NSLayoutConstraint.activate([
-            likeButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            likeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
             
-            instaImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-            instaImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            instaImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            instaImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            likeButton.topAnchor.constraint(equalTo: cellView.topAnchor),
+            likeButton.trailingAnchor.constraint(equalTo: cellView.trailingAnchor),
+            
+            instaImage.topAnchor.constraint(equalTo: cellView.topAnchor),
+            instaImage.leadingAnchor.constraint(equalTo: cellView.leadingAnchor),
+            instaImage.trailingAnchor.constraint(equalTo: cellView.trailingAnchor),
+            instaImage.bottomAnchor.constraint(equalTo: cellView.bottomAnchor),
         
-            dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            dateLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 8),
+            dateLabel.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -8)
         ])
     }
 }

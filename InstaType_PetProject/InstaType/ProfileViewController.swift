@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
        let label = UILabel()
         label.text = "Хасанов Марат"
         label.font = .systemFont(ofSize: 23, weight: .bold)
-        label.textColor = .white
+        label.textColor = .mWhite
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
     private lazy var loginUserLabel: UILabel = {
         let label = UILabel()
         label.text = "@blanxxty"
-        label.textColor = .white
+        label.textColor = .mWhite
         label.font = .systemFont(ofSize: 13, weight: .light)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -39,8 +39,8 @@ class ProfileViewController: UIViewController {
     private lazy var userText: UILabel = {
         let label = UILabel()
         label.text = "Hello, world!"
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 13, weight: .light)
+        label.textColor = .mWhite
+        label.font = .systemFont(ofSize: 13, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -56,6 +56,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .mBackground
         profileSetup()
     }
     
@@ -67,7 +68,7 @@ class ProfileViewController: UIViewController {
         view.addSubview(exitButton)
         
         NSLayoutConstraint.activate([
-            profileImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            profileImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             profileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             
             exitButton.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor),
